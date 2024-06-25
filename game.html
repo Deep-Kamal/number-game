@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Number Comparison Game</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Number Comparison Game</h1>
+    <p>Enter a number to compare with the target number:</p>
+    <input type="number" id="userInput">
+    <button onclick="compareNumbers()">Compare</button>
+    <p id="comparisonResult"></p>
+
+    <script>
+        // Generate a random target number between 1 and 100
+        const targetNumber = Math.floor(Math.random() * 100) + 1;
+        console.log("Target number:", targetNumber);
+
+        function compareNumbers() {
+            const userInput = parseInt(document.getElementById('userInput').value);
+
+            if (isNaN(userInput)) {
+                document.getElementById('comparisonResult').textContent = "Please enter a valid number.";
+            } else {
+                if (userInput < targetNumber) {
+                    document.getElementById('comparisonResult').textContent = `${userInput} is smaller than the target number.`;
+                } else if (userInput > targetNumber) {
+                    document.getElementById('comparisonResult').textContent = `${userInput} is greater than the target number.`;
+                } else {
+                    document.getElementById('comparisonResult').textContent = `${userInput} matches the target number!`;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
